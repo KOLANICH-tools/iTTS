@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iTTS"
+authors = [{name = "KOLANICH"}]
+description = "A kernel for Jupyter (and IPython) speaking text with a TTS"
+keywords = ["TTS", "speech-dispatcher", "speech synthesis"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Framework :: IPython",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+urls = {Homepage = "https://codeberg.org/KOLANICH-tools/iTTS.py"}
+requires-python = ">=3.4"
+dependencies = ["IPython"]
+dynamic = ["version"]
+
+[project.readme]
+file = "ReadMe.md"
+content-type = "text/markdown"
+
+[project.optional-dependencies]
+trie = ["datrie"]
+
+[tool.setuptools]
+zip-safe = true
+include-package-data = false
+
+[tool.setuptools.packages]
+find = {namespaces = false}
+
+[tool.setuptools_scm]
+write_to = "iTTS/__version__.py"
+write_to_template = "__version__ = \"{version}\"\n"
